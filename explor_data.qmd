@@ -1,0 +1,39 @@
+---
+title: "EDS 212 Day 4 Exploring Data"
+author: "Jessica French"
+format: html
+editor: visual
+---
+these change what shows up in the rendered documents so you can exclude warnings and stuff. echo shows the result without showing the code
+```{r}
+
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+library(skimr)
+```
+
+
+## Exploratory Data Visualization
+
+Check out data a bit
+
+```{r}
+#| include: false
+#tell me the column names
+
+names(penguins)
+
+#what are the dimensions
+dim(penguins)
+
+#Show the first 6 lines
+head(penguins)
+
+#Show the last 6 lines
+tail(penguins)
+```
+
