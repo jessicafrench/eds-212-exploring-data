@@ -1,1 +1,4 @@
-# eds-212-exploring-data
+# EDS Day 4 Exploring Data Intro
+-Some useful plots
+
+-Summary stats
