@@ -4,11 +4,10 @@ author: "Jessica French"
 format: html
 editor: visual
 ---
-these change what shows up in the rendered documents so you can exclude warnings and stuff. echo shows the result without showing the code
-```{r}
 
-#| warning: false
-#| echo: false
+```{r}
+#| warning: false #makes it so that warnings do not show up
+#| echo: false #makes it so results show but not the code
 
 library(tidyverse)
 library(palmerpenguins)
@@ -36,4 +35,40 @@ head(penguins)
 #Show the last 6 lines
 tail(penguins)
 ```
+
+```{r}
+skim(penguins) #gives an overview of the data
+```
+
+```{r}
+#| warning: false
+GGally::ggpairs(penguins) #ggpairs is a wrapper for ggplot that formats that plots in this grid. These are ggplots.
+
+```
+
+##Jitter plots of flipper length by species
+```{r}
+#| fig-cap: "This is a caption"
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_jitter(width = 0.2, # changes the spread
+              height = 0,
+              alpha = 0.5, #changes the opacity
+              aes(color = species)) + 
+  geom_boxplot(fill = NA) +
+  theme_minimal() + 
+  scale_color_manual(values = c("thistle4", "coral2", "darkorchid4")) +
+  labs(x = "Penguin Species",
+       y = "Flipper Length in mm",
+       title = "Penguins of the Palmer Archipeligo")
+
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(aes(fill = species), color = "purple") + #changes between variables goes inside aes, whole graph changes goes outside of aes.
+  facet_wrap(~species, ncol = 1) #ncol for number of columns wraps the species into a single column. 
+```
+
+
+
 
